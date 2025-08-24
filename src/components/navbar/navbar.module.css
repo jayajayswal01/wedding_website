@@ -1,0 +1,237 @@
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid #ffd700;
+}
+
+.navbarBrand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  color: #c41e3a;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #ff4d6d;
+}
+
+.navMenu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink,
+.dropdownToggle {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  display: block;
+  position: relative;
+}
+
+.dropdownToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: inherit;
+}
+
+.dropdownArrow {
+  border: solid #333;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.navItem.active .dropdownArrow {
+  transform: rotate(-135deg);
+}
+
+.navLink:hover,
+.dropdownToggle:hover {
+  color: #c41e3a;
+}
+
+.navLink::after,
+.dropdownToggle::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #ffd700;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navLink:hover::after,
+.dropdownToggle:hover::after {
+  width: 100%;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: white;
+  border-radius: 8px;
+  padding: 0.5rem;
+  min-width: 200px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  list-style: none;
+  z-index: 1000;
+}
+
+.dropdownMenu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdownItem {
+  color: #333;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  display: block;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.dropdownItem:hover {
+  background: #fff5e6;
+  color: #c41e3a;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.hamburgerLine {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: #333;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .hamburgerLine:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active .hamburgerLine:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .hamburgerLine:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  .navMenu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    padding: 5rem 1rem;
+    transition: 0.3s ease;
+    gap: 1rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .navMenu.active {
+    right: 0;
+  }
+
+  .navItem {
+    width: 100%;
+  }
+
+  .dropdownMenu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    padding-left: 1rem;
+    width: 100%;
+    background: #f8f8f8;
+  }
+
+  .dropdownMenu.show {
+    transform: none;
+  }
+
+  .navLink,
+  .dropdownToggle {
+    width: 100%;
+    text-align: left;
+  }
+
+  .dropdownToggle {
+    justify-content: space-between;
+  }
+}
+
+/* Elegant scroll animation for dropdown menus */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownMenu.show .dropdownItem {
+  animation: fadeInUp 0.3s ease forwards;
+  animation-delay: calc(0.1s * var(--item-index));
+}

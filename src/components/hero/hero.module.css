@@ -1,0 +1,265 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/wedding-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 1s ease-out;
+}
+
+.hero.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.backgroundOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(196, 30, 58, 0.85) 0%,
+    rgba(128, 0, 32, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.names {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  margin: 0 0 1.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nameText {
+  display: inline-block;
+  position: relative;
+  padding: 0 1rem;
+}
+
+.nameText::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #ffd700;
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+}
+
+.hero.visible .nameText::after {
+  transform: scaleX(1);
+}
+
+.ampersand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2em;
+  color: #ffd700;
+  margin: 0 1rem;
+  animation: pulse 2s infinite;
+}
+
+.date {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  margin: 1rem 0;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.venue {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  margin: 1rem 0 3rem;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin: 3rem 0;
+  flex-wrap: wrap;
+}
+
+.countdownItem {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 12px;
+  min-width: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.countdownItem:hover {
+  transform: translateY(-5px);
+}
+
+.number {
+  display: block;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: transform 0.5s ease;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+}
+
+.button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.primary {
+  background: #ffd700;
+  color: #800020;
+}
+
+.primary:hover {
+  background: #ffe44d;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #ffd700;
+}
+
+.secondary:hover {
+  background: rgba(255, 215, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.decorativeElement {
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  opacity: 0.1;
+  z-index: 1;
+  transform: rotate(45deg);
+}
+
+.mandala {
+  width: 400px;
+  height: 400px;
+  animation: rotate 60s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .hero {
+    background-attachment: scroll;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  .countdownItem {
+    min-width: 80px;
+    padding: 0.75rem;
+  }
+
+  .cta {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Accessibility Focus Styles */
+.button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
