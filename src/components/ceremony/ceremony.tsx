@@ -28,10 +28,6 @@ interface VenueDetails {
   };
 }
 
-interface CeremonyProps {
-  venue: VenueDetails;
-  rituals: Ritual[];
-}
 
 const defaultRituals: Ritual[] = [
   {
@@ -92,11 +88,8 @@ const defaultVenue: VenueDetails = {
   }
 };
 
-export default function Ceremony({ 
-  venue = defaultVenue,
-  rituals = defaultRituals 
-}: CeremonyProps) {
-  const [activeRitual, setActiveRitual] = useState<string>(rituals[0].id);
+export default function Ceremony() {
+  const [activeRitual, setActiveRitual] = useState<string>(defaultRituals[0].id);
   const [isTimelineExpanded, setIsTimelineExpanded] = useState(false);
 
   return (
@@ -111,28 +104,28 @@ export default function Ceremony({
       <div className={styles.venueSection}>
         <div className={styles.venueImage}>
           <Image
-            src={venue.image.src}
-            alt={venue.image.alt}
+            src={defaultVenue.image.src}
+            alt={defaultVenue.image.alt}
             width={600}
             height={400}
             className={styles.image}
           />
         </div>
         <div className={styles.venueDetails}>
-          <h3 className={styles.venueName}>{venue.name}</h3>
-          <p className={styles.venueAddress}>{venue.address}</p>
+          <h3 className={styles.venueName}>{defaultVenue.name}</h3>
+          <p className={styles.venueAddress}>{defaultVenue.address}</p>
           <div className={styles.dateTime}>
             <div className={styles.dateTimeItem}>
               <span className={styles.icon}>📅</span>
-              <span>{venue.date}</span>
+              <span>{defaultVenue.date}</span>
             </div>
             <div className={styles.dateTimeItem}>
               <span className={styles.icon}>⏰</span>
-              <span>{venue.time}</span>
+              <span>{defaultVenue.time}</span>
             </div>
           </div>
           <a 
-            href={venue.mapUrl}
+            href={defaultVenue.mapUrl}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.mapLink}
@@ -156,7 +149,7 @@ export default function Ceremony({
         </button>
 
         <div className={`${styles.ritualsTimeline} ${isTimelineExpanded ? styles.expanded : ''}`}>
-          {rituals.map((ritual, index) => (
+          {defaultRituals.map((ritual, index) => (
             <div
               key={ritual.id}
               className={`${styles.ritualCard} ${activeRitual === ritual.id ? styles.active : ''}`}

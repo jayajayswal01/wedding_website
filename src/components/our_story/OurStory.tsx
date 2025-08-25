@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from './OurStory.module.css';
-import ourstoryImage from "../../assets/ourstory/ourstory.webp";
+import OurStoryImgae from "../../assets/ourstory/ourstory.webp"
+
 
 import type { StaticImageData } from 'next/image';
 
@@ -18,13 +19,6 @@ interface StoryEvent {
   };
 }
 
-interface OurStoryProps {
-  events: StoryEvent[];
-  coupleNames: {
-    partner1: string;
-    partner2: string;
-  };
-}
 
 const defaultEvents: StoryEvent[] = [
   {
@@ -33,8 +27,8 @@ const defaultEvents: StoryEvent[] = [
     title: 'First Meeting',
     description: 'We first met at a mutual friend\'s Diwali celebration. The festival of lights truly brought light into our lives.',
     image: {
-      src: ourstoryImage,
-      alt: 'First meeting at Diwali celebration'
+      src: OurStoryImgae,
+      alt: 'Ilik meeting at Diwali celebration'
     }
   },
   {
@@ -59,11 +53,8 @@ const defaultEvents: StoryEvent[] = [
   }
 ];
 
-export default function OurStory({ 
-  events = defaultEvents,
-  coupleNames = { partner1: 'Arjun', partner2: 'Priya' }
-}: OurStoryProps) {
-  const [activeEvent, setActiveEvent] = useState<string>(events[0].id);
+export default function OurStory(){
+  const [activeEvent, setActiveEvent] = useState<string>(defaultEvents[0].id);
 
   return (
     <section className={styles.ourStory} id="our-story">
@@ -74,12 +65,12 @@ export default function OurStory({
       </div>
 
       <p className={styles.introduction}>
-        The beautiful journey of {coupleNames.partner1} & {coupleNames.partner2}
+        The beautiful journey of Priya & Jane
       </p>
 
       <div className={styles.timeline}>
         <div className={styles.timelineNav} role="tablist" aria-label="Story timeline">
-          {events.map((event, index) => (
+          {defaultEvents.map((event, index) => (
             <button
               key={event.id}
               className={`${styles.timelinePoint} ${activeEvent === event.id ? styles.active : ''}`}
@@ -97,7 +88,7 @@ export default function OurStory({
         </div>
 
         <div className={styles.storyContent}>
-          {events.map((event) => (
+          {defaultEvents.map((event) => (
             <div
               key={event.id}
               id={`story-${event.id}`}
