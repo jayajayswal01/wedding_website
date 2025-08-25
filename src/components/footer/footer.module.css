@@ -1,0 +1,189 @@
+.footer {
+  background: linear-gradient(to bottom, var(--wedding-background-soft), var(--wedding-background));
+  padding: 4rem 1rem 2rem;
+  position: relative;
+  color: var(--wedding-text);
+}
+
+.decorativeTop {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.topMandala {
+  opacity: 0.6;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 3rem;
+}
+
+.mainInfo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.names {
+  font-family: var(--wedding-display-font);
+  font-size: 2.5rem;
+  color: var(--wedding-primary);
+  margin: 0 0 1rem;
+}
+
+.date {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.venue {
+  font-size: 1.125rem;
+  color: var(--wedding-text-soft);
+}
+
+.navigation {
+  margin: 2rem 0;
+}
+
+.navGrid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.navSection {
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  width: 100%;
+  text-align: left;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--wedding-primary);
+  background: none;
+  border: none;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionTitle::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.sectionTitle.expanded::after {
+  transform: rotate(-135deg);
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.linksList.expanded {
+  max-height: 500px;
+}
+
+@media (min-width: 768px) {
+  .linksList {
+    max-height: none !important;
+    overflow: visible;
+  }
+
+  .sectionTitle::after {
+    display: none;
+  }
+}
+
+.link {
+  display: block;
+  padding: 0.5rem 0;
+  color: var(--wedding-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover,
+.link:focus {
+  color: var(--wedding-primary);
+}
+
+.social {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.socialTitle {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--wedding-primary);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.socialLink {
+  color: var(--wedding-text);
+  transition: color 0.2s ease;
+  padding: 0.5rem;
+}
+
+.socialLink:hover,
+.socialLink:focus {
+  color: var(--wedding-primary);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--wedding-border);
+  font-size: 0.875rem;
+  color: var(--wedding-text-soft);
+}
+
+.love {
+  margin-top: 0.5rem;
+}
+
+/* Decorative elements for larger screens */
+@media (min-width: 1024px) {
+  .footer {
+    padding: 6rem 2rem 3rem;
+  }
+
+  .names {
+    font-size: 3rem;
+  }
+
+  .decorativeTop {
+    top: -75px;
+  }
+
+  .topMandala {
+    width: 150px;
+    height: 150px;
+  }
+}
