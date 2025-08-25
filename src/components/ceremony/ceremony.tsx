@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from './ceremony.module.css';
+import ceremonyImage1 from "../../assets/ceremony/ceremony1.jpg"
+
 
 interface Ritual {
   id: string;
@@ -37,7 +39,7 @@ const defaultRituals: Ritual[] = [
     time: '8:00 AM',
     significance: 'Invoking Lord Ganesha\'s blessings ensures a smooth and successful wedding ceremony.',
     image: {
-      src: '/ceremony/ganesh-puja.jpg',
+      src: ceremonyImage1.src,
       alt: 'Ganesh Puja ceremony'
     }
   },

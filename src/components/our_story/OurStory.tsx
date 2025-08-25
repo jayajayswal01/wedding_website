@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from './OurStory.module.css';
-import OurStoryImgae from "../../assets/ourstory/ourstory.webp"
-
+import OurStoryImage from "../../assets/ourstory/ourstory.webp"
+import OurStoryImage1 from "../../assets/ourstory/ourstory1.avif"
+import OurStoryImage2 from "../../assets/ourstory/ourstory2.png"
 
 import type { StaticImageData } from 'next/image';
 
@@ -27,7 +28,7 @@ const defaultEvents: StoryEvent[] = [
     title: 'First Meeting',
     description: 'We first met at a mutual friend\'s Diwali celebration. The festival of lights truly brought light into our lives.',
     image: {
-      src: OurStoryImgae,
+      src: OurStoryImage,
       alt: 'Ilik meeting at Diwali celebration'
     }
   },
@@ -37,7 +38,7 @@ const defaultEvents: StoryEvent[] = [
     title: 'First Date',
     description: 'Our first date was at a local chai cafe. We talked for hours about our families, dreams, and shared love for Bollywood movies.',
     image: {
-      src: '/story/first-date.jpg',
+      src: OurStoryImage1,
       alt: 'First date at the chai cafe'
     }
   },
@@ -47,7 +48,7 @@ const defaultEvents: StoryEvent[] = [
     title: 'The Proposal',
     description: 'During a family trip to Udaipur, surrounded by the beauty of the City Palace, we decided to spend our lives together.',
     image: {
-      src: '/story/proposal.jpg',
+      src: OurStoryImage2,
       alt: 'Proposal at Udaipur City Palace'
     }
   }
