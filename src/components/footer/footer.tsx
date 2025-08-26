@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './footer.module.css';
+import Logo from "../../assets/logo.png"
 
 interface FooterProps {
   coupleNames: {
@@ -77,7 +78,7 @@ export default function Footer({ coupleNames, weddingDate, venue, socialLinks = 
     <footer className={styles.footer}>
       <div className={styles.decorativeTop}>
         <Image
-          src="/mandala-small.svg"
+          src={Logo.src}
           alt=""
           width={100}
           height={100}

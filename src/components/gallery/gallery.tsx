@@ -3,6 +3,10 @@
 import { useState, useCallback } from 'react';
 import Image from 'next/image';
 import styles from './gallery.module.css';
+import Sangeet1 from "../../assets/gallery/sangeet.png"
+import Mehandi1 from "../../assets/gallery/mehandi.png"
+import Prwedding1 from "../../assets/gallery/prewedding.png"
+import Logo from "../../assets/logo.png"
 
 interface GalleryImage {
   id: string;
@@ -26,7 +30,7 @@ interface GalleryProps {
 const defaultImages: GalleryImage[] = [
   {
     id: "pre-wedding-1",
-    src: "/gallery/pre-wedding-1.jpg",
+    src: Prwedding1.src,
     alt: "Romantic couple photoshoot in garden",
     category: "PreWedding",
     thumbnail: { width: 400, height: 300 },
@@ -34,7 +38,7 @@ const defaultImages: GalleryImage[] = [
   },
   {
     id: "mehendi-1",
-    src: "/gallery/mehendi-1.jpg",
+    src: Mehandi1.src,
     alt: "Beautiful mehendi design on bride's hands",
     category: "Mehendi",
     thumbnail: { width: 400, height: 300 },
@@ -42,7 +46,7 @@ const defaultImages: GalleryImage[] = [
   },
   {
     id: "sangeet-1",
-    src: "/gallery/sangeet-1.jpg",
+    src: Sangeet1.src,
     alt: "Family dance performance at sangeet",
     category: "Sangeet",
     thumbnail: { width: 400, height: 300 },
@@ -167,7 +171,7 @@ export default function Gallery({ images = defaultImages }: GalleryProps) {
 
       <div className={styles.decorativeFooter}>
         <Image
-          src="/mandala-small.svg"
+          src={Logo.src}
           alt=""
           width={100}
           height={100}

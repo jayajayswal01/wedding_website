@@ -113,7 +113,7 @@ export default function Ceremony() {
             alt={defaultVenue.image.alt}
             width={600}
             height={400}
-            className={styles.image}
+            className={styles.imagevenue}
           />
         </div>
         <div className={styles.venueDetails}>

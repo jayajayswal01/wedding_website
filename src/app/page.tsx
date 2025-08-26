@@ -6,6 +6,9 @@ import Events from "@/components/events/events";
 import Gallery from '@/components/gallery/gallery';
 import RSVP from "@/components/rsvp/rsvp";
 import Footer from "@/components/footer/footer";
+import Event1 from "../assets/events/events1.jpg"
+import Event2 from "../assets/events/events2.jpg"
+
 
 
 export default function Home() {
@@ -33,7 +36,7 @@ export default function Home() {
             mapUrl: "https://maps.google.com/?q=Banquet+Hall+City+Hotel"
           },
           description: "A night of music and dance to celebrate the upcoming wedding.",
-          image: { src: "/events/sangeet.jpg", alt: "Sangeet celebration" },
+          image: { src: Event2.src, alt: "Sangeet celebration" },
           dress_code: "Traditional/Indian Attire",
           highlights: [
             "Live music and dance performances",
@@ -52,7 +55,7 @@ export default function Home() {
             mapUrl: "https://maps.google.com/?q=Garden+Lawn+City+Hotel"
           },
           description: "Traditional mehendi ceremony with family and friends.",
-          image: { src: "/events/mehendi.jpg", alt: "Mehendi ceremony" },
+          image: { src: Event1.src, alt: "Mehendi ceremony" },
           dress_code: "Colorful/Floral Attire",
           highlights: [
             "Mehendi artist for guests",
