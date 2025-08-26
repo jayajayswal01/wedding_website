@@ -4,7 +4,10 @@ import { useState } from 'react';
 import Image from 'next/image';
 import styles from './ceremony.module.css';
 import ceremonyImage1 from "../../assets/ceremony/ceremony1.jpg"
-
+import ceremonyImage2 from "../../assets/ceremony/ceremony2.jpg"
+import ceremonyImage3 from "../../assets/ceremony/ceremony3.webp"
+import ceremonyImage4 from "../../assets/ceremony/ceremony4.jpg"
+import ceremonyImage5 from "../../assets/ceremony/ceremony5.webp"
 
 interface Ritual {
   id: string;
@@ -50,7 +53,7 @@ const defaultRituals: Ritual[] = [
     time: '9:00 AM',
     significance: 'The mandap represents the couple\'s new home and the four pillars of life.',
     image: {
-      src: '/ceremony/mandap.jpg',
+      src: ceremonyImage2.src,
       alt: 'Wedding Mandap decoration'
     }
   },
@@ -61,7 +64,7 @@ const defaultRituals: Ritual[] = [
     time: '11:00 AM',
     significance: 'Symbolizes the acceptance of each other as life partners.',
     image: {
-      src: '/ceremony/varmala.jpg',
+      src: ceremonyImage3.src,
       alt: 'Varmala ceremony'
     }
   },
@@ -72,7 +75,7 @@ const defaultRituals: Ritual[] = [
     time: '12:00 PM',
     significance: 'Each phera represents a sacred vow and blessing for the couple\'s married life.',
     image: {
-      src: '/ceremony/saatphere.jpg',
+      src: ceremonyImage4.src,
       alt: 'Saat Phere ceremony'
     }
   }
@@ -85,7 +88,7 @@ const defaultVenue: VenueDetails = {
   time: '8:00 AM onwards',
   mapUrl: 'https://goo.gl/maps/your-venue-location',
   image: {
-    src: '/ceremony/venue.jpg',
+    src: ceremonyImage5.src,
     alt: 'Royal Garden Palace venue'
   }
 };

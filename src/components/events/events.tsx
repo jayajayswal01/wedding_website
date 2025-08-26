@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from './events.module.css';
+import eventsImage1 from '../../assets/events/events1.jpg';
+import eventsImage2 from '../../assets/events/events2.jpg';
+import eventsImage3 from '../../assets/events/events3.jpg';
 
 interface EventDetails {
   id: string;
@@ -41,7 +44,7 @@ const defaultEvents: EventDetails[] = [
     description: 'Join us for an evening of traditional Mehendi artistry, music, and celebrations as we adorn the bride with beautiful henna designs.',
     dress_code: 'Traditional Indian Attire (Green & Yellow Theme)',
     image: {
-      src: '/events/mehendi.jpg',
+      src: eventsImage1.src,
       alt: 'Mehendi celebration setup'
     },
     highlights: [
@@ -64,7 +67,7 @@ const defaultEvents: EventDetails[] = [
     description: 'An evening filled with music, dance, and celebrations as both families come together to showcase their performances.',
     dress_code: 'Indo-Western (Blue & Gold Theme)',
     image: {
-      src: '/events/sangeet.jpg',
+      src: eventsImage2.src,
       alt: 'Sangeet ceremony setup'
     },
     highlights: [
@@ -87,7 +90,7 @@ const defaultEvents: EventDetails[] = [
     description: 'Join us for a grand celebration of our union with dinner, music, and blessings from all our loved ones.',
     dress_code: 'Formal Indian/Western Attire (Maroon & Gold Theme)',
     image: {
-      src: '/events/reception.jpg',
+      src: eventsImage3.src,
       alt: 'Reception hall setup'
     },
     highlights: [

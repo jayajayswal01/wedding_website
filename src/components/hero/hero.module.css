@@ -30,7 +30,7 @@
   background: linear-gradient(
     135deg,
     rgba(204, 72, 92, 85%) 0%,
-    rgba(204, 134, 152, 85%) 100%
+    rgba(240, 113, 144, 0.85) 100%
   );
   z-index: 1;
 }
