@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './hero.module.css';
+import heroImage from "../../assets/hero/hero.jpg"
 
 interface CountdownTime {
   days: number;
@@ -107,7 +108,7 @@ export default function Hero({ weddingDate, venue, groomName, brideName }: HeroP
 
       <div className={styles.decorativeElement} aria-hidden="true">
         <Image
-          src="/mandala.svg"
+          src={heroImage}
           alt=""
           width={200}
           height={200}
